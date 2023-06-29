@@ -11,9 +11,9 @@ services:
       MYSQL_ROOT_HOST: root
       MYSQL_DATABASE: TEST
     volumes:
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./init/init.sql:/docker-entrypoint-initdb.d/init.sql
   app:
-    build: .
+    build: ./init
     restart: always
     depends_on:
       - database
